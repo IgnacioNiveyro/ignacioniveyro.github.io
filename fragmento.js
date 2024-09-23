@@ -2,9 +2,9 @@ class MiComponente123 extends HTMLElement{
     constructor(){
         super();
         this.innerHTML = `
-        <p>BLABLABLABLABLA</p>
+        <p>Star Trek (no la vi pero el profe dice eso)</p>
         `;
     }
 }
 
-customElements.define("team-123", MiComponente123);
+customElements.define("nacho", MiComponente123);
