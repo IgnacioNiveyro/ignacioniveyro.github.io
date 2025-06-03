@@ -36,29 +36,27 @@ export function Header() {
 
           {/* Controles (derecha) */}
           <div className="flex items-center gap-2">
-            <div className="hidden md:flex items-center gap-2">
-              <div className="flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-2 ">
+              <div className="flex items-center gap-1 ">
                 <button
-  onClick={() => handleLanguageChange('es')}
-  className={`text-sm px-1 py-0.5 rounded transition-colors cursor-pointer ${
-    language === 'es' 
-      ? 'bg-primary text-primary-foreground' 
-      : 'hover:bg-muted'
-  }`}
->
-  ES
-</button>
-<span className="text-muted-foreground">|</span>
-<button
-  onClick={() => handleLanguageChange('en')}
-  className={`text-sm px-1 py-0.5 rounded transition-colors cursor-pointer ${
-    language === 'en' 
-      ? 'bg-primary text-primary-foreground' 
-      : 'hover:bg-muted'
-  }`}
->
-  EN
-</button>
+                  onClick={() => handleLanguageChange('es')}
+                  className={`text-sm px-1 py-0.5 rounded transition-colors cursor-pointer ${language === 'es'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'hover:bg-muted cursor: pointer'
+                    }`}
+                >
+                  ES
+                </button>
+                <span className="text-muted-foreground">|</span>
+                <button
+                  onClick={() => handleLanguageChange('en')}
+                  className={`text-sm px-1 py-0.5 rounded transition-colors cursor-pointer ${language === 'en'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'hover:bg-muted cursor: pointer'
+                    }`}
+                >
+                  EN
+                </button>
               </div>
               <span className="text-muted-foreground">|</span>
               <ModeToggle />
@@ -100,22 +98,20 @@ export function Header() {
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() => handleLanguageChange('es')}
-                      className={`text-sm px-2 py-1 rounded transition-colors ${
-                        language === 'es' 
-                          ? 'bg-primary text-primary-foreground' 
+                      className={`text-sm px-2 py-1 rounded transition-colors ${language === 'es'
+                          ? 'bg-primary text-primary-foreground'
                           : 'hover:bg-muted'
-                      }`}
+                        }`}
                     >
                       ES
                     </button>
                     <span className="text-muted-foreground">|</span>
                     <button
                       onClick={() => handleLanguageChange('en')}
-                      className={`text-sm px-2 py-1 rounded transition-colors ${
-                        language === 'en' 
-                          ? 'bg-primary text-primary-foreground' 
+                      className={`text-sm px-2 py-1 rounded transition-colors ${language === 'en'
+                          ? 'bg-primary text-primary-foreground'
                           : 'hover:bg-muted'
-                      }`}
+                        }`}
                     >
                       EN
                     </button>

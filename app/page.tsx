@@ -32,9 +32,9 @@ export default function Home() {
             <h1 className="text-4xl md:text-5xl font-bold">
               {t('hero.greeting')} <span className="block">{t('hero.name')}</span>
             </h1>
-            <p className="text-muted-foreground text-lg">
+            <h3 className="text-muted-foreground text-lg">
               {t('hero.description')}
-            </p>
+            </h3>
             <div className="flex flex-wrap gap-4 pt-4">
               <a href="https://www.linkedin.com/in/ignacioniveyro/" target="_blank" rel="noopener noreferrer">
                 <Button className="rounded-md transition-transform hover:scale-105 hover:bg-primary/90">
@@ -49,10 +49,10 @@ export default function Home() {
       {/* Work Section */}
       <section id="work" className="container mx-auto px-4 py-16 md:py-24">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('projects.title')}</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('projects.title')}</h1>
+          <h3 className="text-muted-foreground max-w-2xl mx-auto">
             {t('projects.subtitle')}
-          </p>
+          </h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
@@ -65,10 +65,10 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('about.title')}</h2>
-          <p className="text-lg mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold mb-6">{t('about.title')}</h1>
+          <h3 className="text-lg mb-8">
             {t('about.description')}
-          </p>
+          </h3>
         </div>
       </section>
     </main>
