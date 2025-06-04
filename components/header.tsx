@@ -2,10 +2,10 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Menu } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+//import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useLanguage } from "@/app/contexts/language-context"
 
 export function Header() {
@@ -26,11 +26,11 @@ export function Header() {
             <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
               {t('nav.home')}
             </Link>
-            <Link href="#work" className="text-sm font-medium hover:underline underline-offset-4">
-              {t('nav.projects')}
-            </Link>
             <Link href="#about" className="text-sm font-medium hover:underline underline-offset-4">
               {t('nav.about')}
+            </Link>
+            <Link href="#work" className="text-sm font-medium hover:underline underline-offset-4">
+              {t('nav.projects')}
             </Link>
           </nav>
 
@@ -62,67 +62,69 @@ export function Header() {
               <ModeToggle />
             </div>
 
-            {/* Menú móvil */}
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <nav className="flex flex-col gap-4 mt-8">
-                  <Link
-                    href="/"
-                    className="text-lg font-medium hover:underline underline-offset-4"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {t('nav.home')}
-                  </Link>
-                  <Link
-                    href="#work"
-                    className="text-lg font-medium hover:underline underline-offset-4"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {t('nav.projects')}
-                  </Link>
-                  <Link
-                    href="#about"
-                    className="text-lg font-medium hover:underline underline-offset-4"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {t('nav.about')}
-                  </Link>
-                </nav>
-                <div className="flex items-center gap-4 mt-8">
-                  <div className="flex items-center gap-1">
-                    <button
-                      onClick={() => handleLanguageChange('es')}
-                      className={`text-sm px-2 py-1 rounded transition-colors ${language === 'es'
-                          ? 'bg-primary text-primary-foreground'
-                          : 'hover:bg-muted'
-                        }`}
-                    >
-                      ES
-                    </button>
-                    <span className="text-muted-foreground">|</span>
-                    <button
-                      onClick={() => handleLanguageChange('en')}
-                      className={`text-sm px-2 py-1 rounded transition-colors ${language === 'en'
-                          ? 'bg-primary text-primary-foreground'
-                          : 'hover:bg-muted'
-                        }`}
-                    >
-                      EN
-                    </button>
-                  </div>
-                  <ModeToggle />
-                </div>
-              </SheetContent>
-            </Sheet>
+            {/* Mobile menu button */}
+            <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+            
           </div>
         </div>
       </div>
+      {/* Mobile menu dropdown */}
+      {isOpen && (
+        <div className="md:hidden bg-background border-t px-4 pb-4 pt-2 shadow-sm">
+          {/* 
+          <nav className="flex flex-col gap-3">
+            <Link
+              href="/"
+              className="text-base font-medium hover:underline underline-offset-4"
+              onClick={() => setIsOpen(false)}
+            >
+              {t('nav.home')}
+            </Link>
+            <Link
+              href="#about"
+              className="text-base font-medium hover:underline underline-offset-4"
+              onClick={() => setIsOpen(false)}
+            >
+              {t('nav.about')}
+            </Link>
+            <Link
+              href="#work"
+              className="text-base font-medium hover:underline underline-offset-4"
+              onClick={() => setIsOpen(false)}
+            >
+              {t('nav.projects')}
+            </Link>
+          </nav>
+          */}
+          <div className="mt-4 flex items-center justify-between">
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => handleLanguageChange('es')}
+                className={`text-sm px-2 py-1 rounded transition-colors ${language === 'es'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'hover:bg-muted'
+                  }`}
+              >
+                ES
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button
+                onClick={() => handleLanguageChange('en')}
+                className={`text-sm px-2 py-1 rounded transition-colors ${language === 'en'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'hover:bg-muted'
+                  }`}
+              >
+                EN
+              </button>
+            </div>
+            <ModeToggle />
+          </div>
+        </div>
+      )}
     </header>
   )
 }

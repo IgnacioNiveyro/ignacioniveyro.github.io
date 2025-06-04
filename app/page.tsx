@@ -4,6 +4,7 @@ import { ProjectCard } from "@/components/project-card"
 import { useTranslatedProjects } from "@/data/projects"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/app/contexts/language-context"
+import { FileText, Linkedin } from "lucide-react"
 
 export default function Home() {
   const { t } = useLanguage()
@@ -37,12 +38,31 @@ export default function Home() {
             </h3>
             <div className="flex flex-wrap gap-4 pt-4">
               <a href="https://www.linkedin.com/in/ignacioniveyro/" target="_blank" rel="noopener noreferrer">
-                <Button className="rounded-md transition-transform hover:scale-105 hover:bg-primary/90">
-                  {t('hero.contact')}
+                <Button className="rounded-md transition-transform hover:scale-105 hover:bg-primary/90 cursor-pointer">
+                  {t('hero.contact')} <Linkedin className="ml-2" />
+                </Button>
+              </a>
+              <a
+                href="/cv/Ignacio-Niveyro-Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="rounded-md transition-transform hover:scale-105 hover:bg-primary/90 cursor-pointer">
+                  CV <FileText className="ml-2" />
                 </Button>
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-3xl md:text-4xl font-bold mb-6">{t('about.title')}</h1>
+          <h3 className="text-lg mb-8">
+            {t('about.description')}
+          </h3>
         </div>
       </section>
 
@@ -62,15 +82,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6">{t('about.title')}</h1>
-          <h3 className="text-lg mb-8">
-            {t('about.description')}
-          </h3>
-        </div>
-      </section>
+
     </main>
   )
 }
